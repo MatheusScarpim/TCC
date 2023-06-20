@@ -20,6 +20,14 @@ function isAuthenticated(req) {
     return false
   }  ;
 }
+
+function isAdm(req) {
+  if(req.session.login)
+  {
+    return true;
+  }
+}
+
   
     
 router.use(session({
@@ -46,3 +54,4 @@ router.post('/entrar', (req, res) => {
 
 module.exports = router;
 module.exports.isAuthenticated = isAuthenticated;
+module.exports.isAdm = isAdm;
